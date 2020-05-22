@@ -122,5 +122,4 @@ public class User {
         this.age = age;
     }
     
-    private String test = null;
 }
