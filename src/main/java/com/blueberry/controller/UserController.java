@@ -21,7 +21,7 @@ public class UserController {
 	public String toIndex(HttpServletRequest request, Model model) {
 		int userId = Integer.parseInt(request.getParameter("id"));
 		User user = iTestService.getUserById(userId);
-		model.addAttribute("user1", user);
-		return "showUser2";
+		model.addAttribute("user", user);
+		return "showUser";
 	}
 }
