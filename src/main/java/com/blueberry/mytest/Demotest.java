@@ -15,11 +15,22 @@ public class Demotest {
 	@Resource(name = "proxyFactoryBean")
 	private StudentDao studentDao;
 	
+	@Resource(name = "customDaoProxy")
+	private CustomDao customDao;
+	
 	@Test
 	public void test1() {
 		studentDao.Save();
 		studentDao.Delete();
 		studentDao.Update();
 		studentDao.Find();
+	}
+	
+	@Test
+	public void test2() {
+		customDao.Save();
+		customDao.Delete();
+		customDao.Update();
+		customDao.Find();
 	}
 }

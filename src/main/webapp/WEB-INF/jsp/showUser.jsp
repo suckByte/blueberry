@@ -7,6 +7,6 @@
 <title>Guest</title>
 </head>
 <body>
-	${user.age}
+	${user.fullname}
 </body>
 </html>
