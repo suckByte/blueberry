@@ -15,38 +15,64 @@
                         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<bean id="studentDao" class="com.blueberry.mytest.StudentDaoImpl" />
-	
-	<bean id="myBeforeAdvice" class="com.blueberry.mytest.MyBeforeAdvice" />
-	
-	<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+
+	<bean id="myBeforeAdvice"
+		class="com.blueberry.mytest.MyBeforeAdvice" />
+
+	<bean id="proxyFactoryBean"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
 		<!-- 配置目标类 -->
 		<property name="target" ref="studentDao" />
 		<!-- 实现的接口 -->
-		<property name="proxyInterfaces" value="com.blueberry.mytest.StudentDao" />
+		<property name="proxyInterfaces"
+			value="com.blueberry.mytest.StudentDao" />
 		<!-- 拦截的名称 -->
 		<property name="interceptorNames" value="myBeforeAdvice" />
 		<property name="optimize" value="true" />
 	</bean>
-	
-	<!-- 配置目标类 -->
+<!-- 
+	配置目标类
 	<bean id="customDao" class="com.blueberry.mytest.CustomDao" />
-	
-	<!-- 配置通知 -->
-	<bean id="myAroundAdvice" class="com.blueberry.mytest.MyAroundAdvice" />
-	
-	<!-- 对目标类特定的方法进行增强需配置一个带切入点的切面 -->
-	<bean id="myAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
-		<!-- <property name="pattern" value=".*" /> -->
+
+	配置通知
+	<bean id="myAroundAdvice"
+		class="com.blueberry.mytest.MyAroundAdvice" />
+
+	对目标类特定的方法进行增强需配置一个带切入点的切面
+	<bean id="myAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="pattern" value=".*" />
 		<property name="patterns" value=".*Save.*, .*Find.*" />
 		<property name="advice" ref="myAroundAdvice" />
 	</bean>
-	
-	<!-- 配置产生代理 -->
-	<bean id="customDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+
+	配置产生代理
+	<bean id="customDaoProxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="customDao" />
 		<property name="proxyTargetClass" value="true" />
 		<property name="interceptorNames" value="myAdvisor" />
-	</bean>
-	
+	</bean> -->
+
 	<aop:aspectj-autoproxy />
+
+	<!-- 配置目标类 -->
+	<bean id="productDao" class="com.blueberry.mytest.ProductDao" />
+
+	<!-- 定义切面 -->
+	<bean class="com.blueberry.mytest.MyAspect" />
+
+	<!-- XML配置aspect -->
+	<bean id="categoryDao" class="com.blueberry.mytest.CategoryDaoImpl" />
+	
+	<bean id="myAspectXml" class="com.blueberry.mytest.MyAspectXml" />
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.blueberry.mytest.CategoryDaoImpl.save(..))" id="pointcut1"/>
+		<aop:pointcut expression="execution(* com.blueberry.mytest.CategoryDaoImpl.Find(..))" id="pointcut2"/>
+		<aop:aspect ref="myAspectXml">
+			<aop:before method="before" pointcut-ref="pointcut1" />	
+			<aop:after-throwing method="afterThrowing" pointcut-ref="pointcut2" throwing="error"/>
+		</aop:aspect>
+	</aop:config>
 </beans>

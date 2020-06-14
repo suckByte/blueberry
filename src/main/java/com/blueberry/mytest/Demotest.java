@@ -15,8 +15,8 @@ public class Demotest {
 	@Resource(name = "proxyFactoryBean")
 	private StudentDao studentDao;
 	
-	@Resource(name = "customDaoProxy")
-	private CustomDao customDao;
+//	@Resource(name = "customDaoProxy")
+//	private CustomDao customDao;
 	
 	@Test
 	public void test1() {
@@ -26,11 +26,33 @@ public class Demotest {
 		studentDao.Find();
 	}
 	
+//	@Test
+//	public void test2() {
+//		customDao.Save();
+//		customDao.Delete();
+//		customDao.Update();
+//		customDao.Find();
+//	}
+	
+	@Resource(name = "productDao")
+	private ProductDao productDao;
+	
 	@Test
-	public void test2() {
-		customDao.Save();
-		customDao.Delete();
-		customDao.Update();
-		customDao.Find();
+	public void test3() {
+		productDao.delete();
+		productDao.save();
+		productDao.update();
+		productDao.search();
+	}
+	
+	@Resource(name = "categoryDao")
+	private CategoryDao categoryDao;
+	
+	@Test
+	public void test4() {
+		categoryDao.Delete();
+		categoryDao.save();
+		categoryDao.Update();
+		categoryDao.Find();
 	}
 }

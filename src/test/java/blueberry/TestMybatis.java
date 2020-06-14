@@ -24,7 +24,7 @@ public class TestMybatis {
 
 	@Test
 	public void test1() {
-		User user = itestService.getUserById(2);
+		User user = itestService.getUserById(1);
 		logger.info(JSON.toJSONString(user));
 	}
 }
