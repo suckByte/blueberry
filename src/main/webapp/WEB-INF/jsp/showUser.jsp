@@ -7,6 +7,7 @@
 <title>Guest</title>
 </head>
 <body>
-	${user.fullname}
+	姓名：${user.fullname} <br>
+	年龄：${user.age}
 </body>
 </html>
