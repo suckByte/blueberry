@@ -11,7 +11,11 @@
                         http://www.springframework.org/schema/mvc    
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+	<!-- Springmvc不能处理的请求交给Tomcat 实现动静态资源访问成功 -->
 	<mvc:default-servlet-handler />
+	
+	<!-- 支持springmvc更高级的功能 JSR303校验、快捷的AJAX 映射动态请求 -->
+	<mvc:annotation-driven />
 	
 	<!-- 自动扫描包 使springmvc认为包下用了@Controller注解的类是控制器 -->
 	<context:component-scan
