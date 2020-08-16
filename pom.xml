@@ -106,6 +106,12 @@
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 		</dependency>
+		<!-- 数据库连接池驱动 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
 		<!-- 导入Mysql数据库链接jar包 -->
 		<dependency>
 			<groupId>mysql</groupId>

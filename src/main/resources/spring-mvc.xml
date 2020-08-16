@@ -23,7 +23,7 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<!-- 定义跳转的文件前后缀 视图模式配置 -->
+	<!-- 视图解析器，定义跳转的文件前后缀 视图模式配置 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 自动给后面action的方法return的字符串加上前缀和后缀变成一个可用的url？ -->
 		<property name="prefix" value="/WEB-INF/jsp/" />

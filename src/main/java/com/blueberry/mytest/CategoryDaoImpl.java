@@ -12,7 +12,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	public void Find() {
 		// TODO Auto-generated method stub
 		System.out.println("b");
-		//int i = 1/0;
+		int i = 1/0;
 	}
 
 	@Override

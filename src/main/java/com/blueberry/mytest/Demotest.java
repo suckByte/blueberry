@@ -18,13 +18,13 @@ public class Demotest {
 //	@Resource(name = "customDaoProxy")
 //	private CustomDao customDao;
 	
-	@Test
-	public void test1() {
-		studentDao.Save();
-		studentDao.Delete();
-		studentDao.Update();
-		studentDao.Find();
-	}
+//	@Test
+//	public void test1() {
+//		studentDao.Save();
+//		studentDao.Delete();
+//		studentDao.Update();
+//		studentDao.Find();
+//	}
 	
 //	@Test
 //	public void test2() {
@@ -34,17 +34,17 @@ public class Demotest {
 //		customDao.Find();
 //	}
 	
-	@Resource(name = "productDao")
-	private ProductDao productDao;
-	
-	@Test
-	public void test3() {
-		productDao.delete();
-		productDao.save();
-		productDao.update();
-		productDao.search();
-	}
-	
+//	@Resource(name = "productDao")
+//	private ProductDao productDao;
+//	
+//	@Test
+//	public void test3() {
+//		productDao.delete();
+//		productDao.save();
+//		productDao.update();
+//		productDao.search();
+//	}
+//	
 	@Resource(name = "categoryDao")
 	private CategoryDao categoryDao;
 	
