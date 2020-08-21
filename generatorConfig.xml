@@ -7,9 +7,9 @@
 
 	<context id="DB2Tables" targetRuntime="MyBatis3">
 	
-	<commentGenerator>
-		<property name="suppressAllComments" value="true"/>
-	</commentGenerator>
+		<commentGenerator>
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
 
 		<!-- 配置数据库连接信息 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -17,6 +17,7 @@
 			password="666666">
 		</jdbcConnection>
 
+		<!--非必需，类型处理器，在数据库类型和Java类型之间的转换控制 -->
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
@@ -24,8 +25,14 @@
 		<!-- 指定javaBean生成的位置 -->
 		<javaModelGenerator
 			targetPackage="com.blueberry.pojo" targetProject=".\src\main\java">
-			<property name="enableSubPackages" value="true" />
+			<!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 是否对类CHAR类型的列的数据进行trim操作 -->
 			<property name="trimStrings" value="true" />
+			<!-- 是否对model添加构造函数 -->
+			<property name="constructorBased" value="true"/>
+			<!-- 建立的Model对象是否不可改变 即生成Model对象不会有 setter方法，只有构造方法 -->
+			<property name="immutable" value="false" />
 		</javaModelGenerator>
 
 		<!-- 指定SQL映射文件生成的位置 -->
@@ -34,14 +41,18 @@
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
+		<!-- 客户端代码，生成易于使用的针对Model对象和xml配置文件的代码 type='ANNOTATEDMAPPER', 生成Java Model 
+			和基于注解的Mapper对象 type="MIXEDMAPPER", 生成基于注解的Java Model 和相应的Mapper对象 type="XMLMAPPER", 
+			生成SQLMap XML文件和独立的Mapper接口 -->
 		<!-- 指定DAO接口生成的位置，mapper接口 -->
 		<javaClientGenerator type="XMLMAPPER"
 			targetPackage="com.blueberry.dao" targetProject="./src/main/java">
+			<!-- enableSubPackages: 是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 		<!-- 指定每个表的生成策略 -->
-		<table tableName="t_test" domainObjectName="Tuser"
+		<table tableName="t_test" domainObjectName="User"
 				enableCountByExample="false"
 				enableDeleteByExample="false"
 				enableSelectByExample="false"
