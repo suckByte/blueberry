@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.blueberry.dao.UserMapper">
+<mapper namespace="com.blueberry.dao.IUserDao">
   <resultMap id="BaseResultMap" type="com.blueberry.pojo.User">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -14,21 +14,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_test
+    from blueUser
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_test
+    delete from blueUser
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.blueberry.pojo.User">
-    insert into t_test (id, fullname, age
+    insert into blueUser (id, fullname, age
       )
     values (#{id,jdbcType=INTEGER}, #{fullname,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.blueberry.pojo.User">
-    insert into t_test
+    insert into blueUser
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -53,7 +53,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.blueberry.pojo.User">
-    update t_test
+    update blueUser
     <set>
       <if test="fullname != null">
         fullname = #{fullname,jdbcType=VARCHAR},
@@ -65,7 +65,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.blueberry.pojo.User">
-    update t_test
+    update blueUser
     set fullname = #{fullname,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

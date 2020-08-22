@@ -24,7 +24,7 @@
 
 		<!-- 指定javaBean生成的位置 -->
 		<javaModelGenerator
-			targetPackage="com.blueberry.pojo" targetProject=".\src\main\java">
+			targetPackage="com.blueberry.pojo" targetProject="./src/main/java">
 			<!-- 是否允许子包，即targetPackage.schemaName.tableName -->
 			<property name="enableSubPackages" value="false" />
 			<!-- 是否对类CHAR类型的列的数据进行trim操作 -->
@@ -37,7 +37,7 @@
 
 		<!-- 指定SQL映射文件生成的位置 -->
 		<sqlMapGenerator targetPackage="mapper"
-			targetProject=".\src\main\resources">
+			targetProject="./src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
@@ -52,7 +52,7 @@
 		</javaClientGenerator>
 
 		<!-- 指定每个表的生成策略 -->
-		<table tableName="t_test" domainObjectName="User"
+		<table tableName="blueUser" domainObjectName="User"
 				enableCountByExample="false"
 				enableDeleteByExample="false"
 				enableSelectByExample="false"

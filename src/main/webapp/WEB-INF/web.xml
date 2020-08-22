@@ -4,6 +4,10 @@
 	version="3.0">
 	<display-name>Archetype Created Web Application</display-name>
 	
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	
 	<!-- 1.启动spring的容器 -->
 	<!-- needed for ContextLoaderListener -->
 	<context-param>
@@ -87,7 +91,5 @@
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 	
-	<welcome-file-list>
-		<welcome-file>/index.jsp</welcome-file>
-	</welcome-file-list>
+	
 </web-app>
