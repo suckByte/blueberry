@@ -60,6 +60,14 @@
 				selectByExampleQueryId="false">
 			<property name="useActualColumnNames" value="true"/>
 		</table>
+		
+		<table tableName="tb_emp" domainObjectName="Employee"
+				enableCountByExample="false"
+				enableDeleteByExample="false"
+				enableSelectByExample="false"
+				enableUpdateByExample="false" 
+				selectByExampleQueryId="false">
+		</table>
 
 	</context>
 </generatorConfiguration>
