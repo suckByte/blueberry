@@ -30,7 +30,7 @@
 			<!-- 是否对类CHAR类型的列的数据进行trim操作 -->
 			<property name="trimStrings" value="true" />
 			<!-- 是否对model添加构造函数 -->
-			<property name="constructorBased" value="true"/>
+			<property name="constructorBased" value="false"/>
 			<!-- 建立的Model对象是否不可改变 即生成Model对象不会有 setter方法，只有构造方法 -->
 			<property name="immutable" value="false" />
 		</javaModelGenerator>
@@ -52,22 +52,27 @@
 		</javaClientGenerator>
 
 		<!-- 指定每个表的生成策略 -->
-		<table tableName="blueUser" domainObjectName="User"
+		<!-- <table tableName="blueUser" domainObjectName="User"
 				enableCountByExample="false"
 				enableDeleteByExample="false"
 				enableSelectByExample="false"
 				enableUpdateByExample="false" 
 				selectByExampleQueryId="false">
 			<property name="useActualColumnNames" value="true"/>
+		</table> -->
+		
+		<table tableName="tb_emp" domainObjectName="temp" >
+			<property name="useActualColumnNames" value="false"/>
 		</table>
 		
-		<table tableName="tb_emp" domainObjectName="Employee"
+		<!-- <table tableName="tb_dept" domainObjectName="Deptment"
 				enableCountByExample="false"
 				enableDeleteByExample="false"
 				enableSelectByExample="false"
 				enableUpdateByExample="false" 
 				selectByExampleQueryId="false">
-		</table>
+			<property name="useActualColumnNames" value="false"/>
+		</table> -->
 
 	</context>
 </generatorConfiguration>
